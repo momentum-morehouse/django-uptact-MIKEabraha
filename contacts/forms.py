@@ -16,7 +16,7 @@ class ContactForm(forms.ModelForm):
             'phone_number',
             'email',
             'birthday',
-            'note'
+            
         ]
 
         widgets = {
@@ -27,6 +27,3 @@ class DateForm(forms.Form):
    day = forms.DateField(initial=datetime.date.today)
 print(DateForm())       
         
-
-#class Note(forms.Form):
-   #Contact = forms.ForeignKey(ContactForm, on_delete= forms.CASCADE)
