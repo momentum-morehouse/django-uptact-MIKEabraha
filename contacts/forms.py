@@ -1,6 +1,7 @@
 from django import forms
-from .models import Contact
+from .models import Contact, Note
 import datetime
+
 
 
 class ContactForm(forms.ModelForm):
@@ -27,3 +28,8 @@ class DateForm(forms.Form):
    day = forms.DateField(initial=datetime.date.today)
 print(DateForm())       
         
+
+class NoteForm(forms.ModelForm):
+    class Meta:
+        model = Note
+        fields = ["text"]
