@@ -1,4 +1,5 @@
-{% extends "base.html" %} {% block content %}
+{% extends "base.html" %} 
+{% block content %}
 
 <div class="w-33 pa3">
 	<h2>{{ contact.name }}</h2>
@@ -11,7 +12,7 @@
           {{ contact.address_2 }}<br />
         {% endif %}
         {{ contact.city }}, {{ contact.state }} 
-        { contact.zip_code }}
+        {{ contact.zip_code }}
       </div>
     </div>
 
@@ -45,7 +46,6 @@
     {% endfor %}
 </div>    
 
-<div class = ""
 
 
 {% endblock %}

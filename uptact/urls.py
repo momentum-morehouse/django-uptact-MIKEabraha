@@ -32,7 +32,7 @@ urlpatterns = [
           contacts_views.contact_detail,
           name='contact_detail'),
     path('contacts/<int:pk>/notes/',
-          contacts_views.add_NoteForm, name ='add_note'),
+          contacts_views.post_note, name ='add_note'),
 ]
 
 if settings.DEBUG:

@@ -58,24 +58,25 @@ def list_notes(request, pk):
     })
 
 
-def add_NoteForm(request, pk):    
-    if request.method == 'POST': 
-         form = NoteForm(request.POST) 
-         if form.is_valid():
-            new_note = form.save(commit=False)
-            new_note.contact_id = pk
-            new_note.save()
 
-            return redirect(to='contact_detail', pk=pk) 
-             
-    else:
-        form = NoteForm()
-        return render(request,"contacts/add_note.html",{"form": form, 
-        })
 
 
 def contact_detail(request, pk):
     contact = get_object_or_404(Contact, pk=pk)
-    return render(request,"contacts/contact.detail.html",{"contact":contact})
+    return render(request,"contacts/contact_detail.html",{"contact":contact})
+
+
+
+def post_note(request,pk):
+    if request.method == 'POST':
+        form = NoteForm(request.POST)
+        if form.is_valid():
+            new_note = form.save(commit=False)
+            new_note.contact_id = pk 
+            new_note.save()
+            return redirect(to='contact_detail',pk=pk)
+    else:
+        form = NoteForm()
+    return render(request,'contacts/notes.html' , {'form': form})
 
 
